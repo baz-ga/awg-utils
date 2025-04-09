@@ -17,7 +17,45 @@ Comparing PDF files manually to find differences can be time-consuming and error
 * Open a new terminal in **VSCode** editor (preferably **Git Bash**, following paths and directions are using Git Bash syntax).
 * In the terminal, change directory to the subfolder `compare_pdfs` by typing: `cd compare_pdfs` (it should be sufficient to type `cd comp` + `TAB` key, the console autocompletes the name on its own). This subfolder is where the comparison script lives.
 
-Now you're good to run the comparison script.
+Now you're good to run the comparison script, except when running on MacOS.
+
+#### MacOS caveats
+
+MacOS ships with preinstalled python 3.?.?. To use the exact version mentioned above you should install it, e.g., via homebrew:
+
+```bash
+brew install python@3.13
+```
+
+To make it available you should add it to your bashprofile in your `.zshrc`.
+
+```bash
+export …
+```
+
+Trying to run the commands for setting the comparison (described below) will certainly result in a warning to use python virtual environments. So let’s set up a venv by running the following commands in your `compare_pdfs` directory:
+
+```bash
+python -m venv venv
+```
+
+This will create a `venv` folder in `compare_pdfs` containing all things needed. To activate the virtual environment run:
+
+```bash
+source venv/bin/activate
+```
+
+Now you're good to run the comparison script. When you are finished with the PDF comparison do not forget to deactivate your virtual environment by running:
+
+```bash
+deactivate
+```
+
+If you want to delete the virtual envoronment simply run:
+
+```bash
+rm -r venv
+```
 
 ### Comparison
 
